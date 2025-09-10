@@ -3,9 +3,3 @@
 
 # Ignore .env file because it contains credentials
 .env
-
-# But don't ignore the folder itself
-!Parch_and_Posey_CSV_Files/
-!Gold/
-!raw/
-!Transformed
