@@ -2,8 +2,8 @@
 
 # Script to load Parch & Posey CSVs into PostgreSQL (via docker-compose)
 # Usage:
-#   ./csv_to_postgres.sh             → Append data to existing tables
-#   ./csv_to_postgres.sh --reset     → Truncate tables before loading
+#   ./csv_to_postgres.sh             #To Append data to existing tables
+#   ./csv_to_postgres.sh --reset     #To Truncate tables before loading
 
 # Directory where this script is, regardless of where it's run from
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
