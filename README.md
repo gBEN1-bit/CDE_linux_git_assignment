@@ -2,6 +2,13 @@
 
 This repository contains all the scripts and documentation for the ETL process and data analysis for CoreDataEngineers project task.
 
+## Navigation / Quick Access
+Quickly move to section you are interested in by clicking on appropriate link:
+- [Sripts](#script)
+- [ETL Pipeline Architecture](#etl-pipeline-architecture)
+- [How to use the Solution](#how-to-use-the-solution)
+- [Cron Job ](#cron-job)
+- [SQL Solutions](#sql-solutions)
 
 ## Scripts
 
@@ -28,7 +35,7 @@ This SQL script contains queries to answer specific business questions about the
 
 ![ETL Pipeline Architecture](Images/ProjectArchitecture.png)
 
-## Usage
+## How to use the Solution
 
 1. Ensure you have gitbash and docker installed and also the necessary permissions to execute the Bash scripts.
 2. Create a .env file in the root directory and put in values for the following missing database credentials/variables:
