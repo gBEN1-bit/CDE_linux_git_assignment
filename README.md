@@ -56,11 +56,11 @@ PGADMIN_CONTAINER_NAME=pgadmin-setup
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=
 
-3. Run the scripts in the following order on your gitbash terminal:
-   - source ./etl.sh 
-   - source ./move_json_and_csv.sh
-   - source ./csv_to_postgres.sh             #To Append data to existing tables
-   - source ./csv_to_postgres.sh --reset     #To Truncate tables before loading
+3. Run the scripts in the following order on your gitbash terminal from the root directory:
+   - source ./scripts/bash/etl.sh 
+   - source ./scripts/bash/move_json_and_csv.sh
+   - source ./scripts/bash/csv_to_postgres.sh             #To Append data to existing tables
+   - source ./scripts/bash/csv_to_postgres.sh --reset     #To Truncate tables before loading
 
 Run this scripts on a linux or wsl terminal:
    - source ./scripts/bash/scheduler.sh    

@@ -15,6 +15,43 @@ set -a
 source "$PROJECT_ROOT/.env"
 set +a
 
+
+# Base raw URL to download the csv files from
+base_url="https://raw.githubusercontent.com/jdbarillas/parchposey/master/data-raw"
+
+# List of CSV files to download
+files=(
+  accounts.csv
+  orders.csv
+  region.csv
+  sales_reps.csv
+  web_events.csv
+)
+
+# Create directory Parch_and_Posey_CSV_Files (if it doesn't exist)
+echo "-----Creating Parch_and_Posey_CSV_Files Directory.....-----"
+mkdir -p "$PROJECT_ROOT/Parch_and_Posey_CSV_Files"
+
+printf "\n"  # Add one blank line
+
+# Remove old CSVs files
+echo "-----Removing Old CSV files.....-----"
+rm -f "$PROJECT_ROOT/Parch_and_Posey_CSV_Files"/*.csv
+
+printf "\n"  # Add one blank line
+
+# Download each CSV
+for f in "${files[@]}"; do
+  echo "-----Downloading $f.....-----"
+  curl -s -o "$PROJECT_ROOT/Parch_and_Posey_CSV_Files/$f" "$base_url/$f"
+done
+
+printf "\n"  # Add one blank line
+
+echo "All CSVs have been downloaded into $PROJECT_ROOT/Parch_and_Posey_CSV_Files"
+
+printf "\n"  # Add one blank line
+
 # Directory containing CSV files
 CSV_DIR="$PROJECT_ROOT/Parch_and_Posey_CSV_Files"
 
