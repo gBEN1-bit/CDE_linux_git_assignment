@@ -4,7 +4,7 @@ This repository contains all the scripts and documentation for the ETL process a
 
 ## Navigation / Quick Access
 Quickly move to section you are interested in by clicking on appropriate link:
-- [Sripts](#script)
+- [Scripts](#scripts)
 - [ETL Pipeline Architecture](#etl-pipeline-architecture)
 - [How to use the Solution](#how-to-use-the-solution)
 - [Cron Job ](#cron-job)
