@@ -56,23 +56,23 @@ PGADMIN_CONTAINER_NAME=pgadmin-setup
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=
 
-3. Run the scripts in the following order on your gitbash terminal:
-   - source ./etl.sh 
-   - source ./move_json_and_csv.sh
-   - source ./csv_to_postgres.sh             #To Append data to existing tables
-   - source ./csv_to_postgres.sh --reset     #To Truncate tables before loading
+3. Run the scripts in the following order on your gitbash terminal from the root directory:
+   - source ./scripts/bash/etl.sh 
+   - source ./scripts/bash/move_json_and_csv.sh
+   - source ./scripts/bash/csv_to_postgres.sh             #To Append data to existing tables
+   - source ./scripts/bash/csv_to_postgres.sh --reset     #To Truncate tables before loading
 
 Run this scripts on a linux or wsl terminal:
-   - source ./scheduler.sh
+   - source ./scripts/bash/scheduler.sh    
 
 4. Use the SQL queries in the Scripts/SQL directory to analyze the imported data.
 
 ## Cron Job
 
-The ETL script is scheduled to run daily at 12:00 AM using the following cron job:
+The ETL script is scheduled to run daily at 12:00 AM and also keeping the log using the following cron job:
 
 ```
-0 0 * * * scripts/bash/etl.sh
+0 0 * * * ./scripts/bash/etl.sh >> ./etl_job.log 2>&1
 ```
 
 ## SQL Solutions

@@ -1,0 +1,53 @@
+----- Installing necessary libraries..... -----
+csvkit not found, installing...
+/mnt/c/Users/Admin/Downloads/CDE/collab/CDE_linux_git_assignment/Scripts/Bash/etl.sh: 8: pip: not found
+
+----- Starting ETL Process..... -----
+
+----- Assigning URL to a variable..... -----
+
+----- Ensuring URL Variable is globally persistent..... -----
+/mnt/c/Users/Admin/Downloads/CDE/collab/CDE_linux_git_assignment/Scripts/Bash/etl.sh: 34: source: not found
+
+----- URL Environment Variable Value..... -----
+assignment_url=
+
+----- Creating RAW folder directory (provided, it doesn't exist)..... -----
+mkdir: cannot create directory ‘../../raw’: Permission denied
+
+----- Removing existing CDE_Project.csv file (if exists) before downloading in the RAW folder directory..... -----
+rm: cannot remove '../../raw/CDE_Project.csv': No such file or directory
+
+----- Downloading file from the Environment Variable URL..... -----
+curl: (2) no URL specified
+curl: try 'curl --help' or 'curl --manual' for more information
+
+----- Has the CDE_Project.csv file been saved successfully in the RAW folder? -----
+No, CDE_Project.csv was NOT saved successfully and can't be found in the RAW folder
+
+----- Renaming Column Variable_code to variable_code..... -----
+sed: can't read ../../raw/CDE_Project.csv: No such file or directory
+
+----- Creating Transformed folder directory (provided, it doesn't exist)..... -----
+mkdir: cannot create directory ‘../../Transformed’: Permission denied
+
+----- Removing existing 2023_year_finance.csv file (if exists) before downloading in the Transformed folder directory..... -----
+
+----- Processing file (selecting Year, Value, Units, variable_code)..... -----
+/mnt/c/Users/Admin/Downloads/CDE/collab/CDE_linux_git_assignment/Scripts/Bash/etl.sh: 93: cannot create ../../Transformed/2023_year_finance.csv: Directory nonexistent
+
+----- Has the 2023_year_finance.csv file been saved successfully in the Transformed folder? -----
+No, 2023_year_finance.csv was NOT saved successfully and can't be found in the Transformed folder
+
+----- Creating Gold folder directory (provided, it doesn't exist)..... -----
+mkdir: cannot create directory ‘../../Gold’: Permission denied
+
+----- Removing existing 2023_year_finance.csv file (if exists) before downloading in the Gold folder directory..... -----
+
+----- Moving/Loading the Transformed Data into the Gold Directory..... ------
+mv: cannot stat '../../Transformed/2023_year_finance.csv': No such file or directory
+
+----- Has the 2023_year_finance.csv file been saved/loaded successfully in the Gold folder? -----
+No, 2023_year_finance.csv was NOT saved/loaded successfully and can't be found in the Gold folder
+
+----- Finishing ETL Process..... -----
