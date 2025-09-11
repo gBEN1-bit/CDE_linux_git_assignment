@@ -63,7 +63,7 @@ PGADMIN_DEFAULT_PASSWORD=
    - source ./csv_to_postgres.sh --reset     #To Truncate tables before loading
 
 Run this scripts on a linux or wsl terminal:
-   - source ./scheduler.sh
+   - source ./scripts/bash/scheduler.sh    
 
 4. Use the SQL queries in the Scripts/SQL directory to analyze the imported data.
 
@@ -72,7 +72,7 @@ Run this scripts on a linux or wsl terminal:
 The ETL script is scheduled to run daily at 12:00 AM using the following cron job:
 
 ```
-0 0 * * * scripts/bash/etl.sh
+0 0 * * * ./scripts/bash/etl.sh
 ```
 
 ## SQL Solutions
