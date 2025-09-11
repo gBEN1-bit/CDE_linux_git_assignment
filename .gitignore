@@ -1,0 +1,5 @@
+# Ignore all CSV files
+*.csv
+
+# Ignore .env file because it contains credentials
+.env

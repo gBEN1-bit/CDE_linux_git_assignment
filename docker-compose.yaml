@@ -1,0 +1,43 @@
+services:
+  # PostgreSQL database service
+  postgres:
+    container_name: ${POSTGRES_CONTAINER_NAME} 
+    image: postgres:13
+
+    # Inject environment variables from .env (assignment style)
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+    # Persist database data with a named volume
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+
+    # Expose PostgreSQL on host using port from .env
+    ports:
+      - "${DB_PORT}:5432"
+
+    # Health check to ensure Postgres is ready before use
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 5s
+      retries: 5
+
+    restart: always
+
+  # pgAdmin service (optional web UI for PostgreSQL)
+  pgadmin:
+    container_name: ${PGADMIN_CONTAINER_NAME}   # <— assignment addition
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "8090:80"
+    depends_on:
+      - postgres
+
+# Named volume to persist PostgreSQL data
+volumes:
+  postgres-db-volume:
