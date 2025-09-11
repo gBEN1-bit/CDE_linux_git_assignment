@@ -69,10 +69,10 @@ Run this scripts on a linux or wsl terminal:
 
 ## Cron Job
 
-The ETL script is scheduled to run daily at 12:00 AM using the following cron job:
+The ETL script is scheduled to run daily at 12:00 AM and also keeping the log using the following cron job:
 
 ```
-0 0 * * * ./scripts/bash/etl.sh
+0 0 * * * ./scripts/bash/etl.sh >> ./etl_job.log 2>&1
 ```
 
 ## SQL Solutions
