@@ -31,21 +31,21 @@ This SQL script contains queries to answer specific business questions about the
 ## Usage
 
 1. Ensure you have gitbash and docker installed and also the necessary permissions to execute the Bash scripts.
-2. Create a .env file in the root directory and put in values for the following missing database credentials/variables.
-# PostgreSQL credentials
+2. Create a .env file in the root directory and put in values for the following missing database credentials/variables:
+#### PostgreSQL credentials
 POSTGRES_USER=
 POSTGRES_PASSWORD=
 POSTGRES_DB=posey
 
-# Networking
+#### Networking
 DB_HOST=localhost
 DB_PORT=5432
 
-# Docker service names
+#### Docker service names
 POSTGRES_CONTAINER_NAME=postgres-setup
 PGADMIN_CONTAINER_NAME=pgadmin-setup
 
-# pgAdmin credentials
+#### pgAdmin credentials
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=
 
@@ -56,7 +56,7 @@ PGADMIN_DEFAULT_PASSWORD=
    - source ./csv_to_postgres.sh --reset     #To Truncate tables before loading
 
 Run this scripts on a linux or wsl terminal:
-   - source ./scheduler.sh --reset     #To Truncate tables before loading
+   - source ./scheduler.sh
 
 4. Use the SQL queries in the Scripts/SQL directory to analyze the imported data.
 
@@ -77,7 +77,7 @@ SELECT id
 FROM orders
 WHERE gloss_qty > 4000 OR poster_qty > 4000;
 ```
-![Solution](images/query1_soln.png)
+![Solution](Images/Query1_Soln.png)
 
 2. Write a query that returns a list of orders where the `standard_qty` is zero and either the `gloss_qty` or `poster_qty` is over 1000.
 
@@ -87,7 +87,7 @@ FROM orders
 WHERE standard_qty = 0
   AND (gloss_qty > 1000 OR poster_qty > 1000);
 ```
-![Solution](images/query2_soln.png)
+![Solution](Images/Query2_Soln.png)
 
 3. Find all the company names that start with a 'C' or 'W', and where the primary contact contains 'ana' or 'Ana', but does not contain 'eana'.
 
@@ -110,7 +110,7 @@ WHERE (name LIKE 'C%' OR name LIKE 'W%')
   AND (primary_poc LIKE '%ana%' OR primary_poc LIKE '%Ana%')
   AND (primary_poc NOT LIKE '%eana%');
 ```
-![Solution](images/query3_soln.png)
+![Solution](Images/Query3_Soln.png)
 
 4. Provide a table that shows the region for each sales rep along with their associated accounts. Your final table should include three columns: the region name, the sales rep name, and the account name. Sort the accounts alphabetically (A-Z) by account name.
 
@@ -123,5 +123,5 @@ JOIN sales_reps s ON r.id = s.region_id
 JOIN accounts a   ON s.id = a.sales_rep_id
 ORDER BY a.name ASC;
 ```
-![Solution](images/query4_soln.png)
+![Solution](Images/Query4_Soln.png)
 
